@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>319 闪轰纪念册</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #dbeeff, #f0f8ff);
+            color: #333;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        header {
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            font-size: 32px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .crane {
+            position: absolute;
+            width: 40px;
+            opacity: 0.6;
+            animation: float 15s linear infinite;
+        }
+        @keyframes float {
+            from { transform: translateY(100vh); }
+            to { transform: translateY(-10vh); }
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header onclick="revealContent()">💛 319 闪轰纪念册 | 点击揭开回忆 💛</header>
+    <div class="container" id="content">
+        <div class="section" id="section1">
+            <h2>🏡 宿舍名片 | 319 的三人行</h2>
+            <p><strong>住户：</strong> 辣子、老癫癫、derder</p>
+            <p><strong>地址：</strong> 西北四319（爱的窝窝）</p>
+            <p><strong>纪念日：</strong> 闪轰Day 1 🎉</p>
+            <p><strong>入住时间线：</strong></p>
+            <p>🌟 derder：3年 | 🌟 老癫癫：2年 | 🌟 辣子：7个多月</p>
+        </div>
+        <div class="section" id="section2">
+            <h2>💫 319 的故事，从相遇到闪轰</h2>
+            <p>世上所有的相遇，都是命运精心策划的缘分...</p>
+            <p>从陌生到好朋友，我们的世界变得更有趣...</p>
+        </div>
+        <div class="section" id="section3">
+            <h2>🔥 我们的专属时光</h2>
+            <ul>
+                <li>🌙 深夜卧谈：陪伴彼此度过最漫长的夜晚。</li>
+                <li>📺 宿舍追剧：一起疯狂吐槽，为剧情心潮澎湃。</li>
+                <li>🍲 炸鸡火锅：在冬天围炉夜话，庆祝平凡的日子。</li>
+                <li>📸 拍美照留念：光影里定格最美的年华。</li>
+                <li>😂 互相打趣互损：用吐槽和调侃表达彼此的喜欢。</li>
+            </ul>
+        </div>
+        <div class="section" id="section4">
+            <h2>⏳ 毕业倒计时</h2>
+            <p class="countdown" id="countdown"></p>
+            <p>📌 未来的某一天，当你想起319...</p>
+            <p>📌 这不仅仅是一个网页，而是属于我们319的“友情纪念册”，愿它承载我们的青春，永不褪色！</p>
+            <p>❤️ 319 闪轰，友谊长存！ ❤️</p>
+        </div>
+    </div>
+    <footer>💛 319宿舍 | 友情永不散场 💛</footer>
+    <script>
+        function countdown() {
+            const graduationDate = new Date('2025-06-30').getTime();
+            const now = new Date().getTime();
+            const timeLeft = graduationDate - now;
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            document.getElementById("countdown").innerHTML = `距离毕业还有 <span class="highlight">${days}</span> 天`;
+        }
+        setInterval(countdown, 1000);
+        countdown();
+        
+        function revealContent() {
+            document.getElementById("content").style.display = "block";
+            let sections = document.querySelectorAll(".section");
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.add("show");
+                }, index * 1500);
+            });
+        }
+        
+        function createCrane() {
+            const crane = document.createElement("img");
+            crane.src = "https://upload.wikimedia.org/wikipedia/commons/6/6b/Origami-crane.svg";
+            crane.classList.add("crane");
+            crane.style.left = Math.random() * 100 + "vw";
+            crane.style.top = "100vh";
+            crane.style.animationDuration = (Math.random() * 10 + 5) + "s";
+            document.body.appendChild(crane);
+            setTimeout(() => { crane.remove(); }, 15000);
+        }
+        setInterval(createCrane, 3000);
+    </script>
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
