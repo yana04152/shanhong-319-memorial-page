@@ -12,7 +12,7 @@
             background: linear-gradient(to bottom, #dbeeff, #f0f8ff);
             color: #333;
             text-align: center;
-            overflow: hidden;
+            overflow-y: auto;
             position: relative;
         }
         header {
@@ -41,23 +41,14 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .crane {
-            position: absolute;
-            width: 40px;
-            opacity: 0.6;
-            animation: float 15s linear infinite;
-        }
-        @keyframes float {
-            from { transform: translateY(100vh); }
-            to { transform: translateY(-10vh); }
-        }
         footer {
             margin-top: 50px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 10px;
-            font-size: 14px;
+            padding: 30px;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: #fff;
+            font-size: 18px;
             font-weight: bold;
+            border-radius: 0 0 10px 10px;
         }
     </style>
 </head>
@@ -93,9 +84,10 @@
             <p>📌 未来的某一天，当你想起319...</p>
             <p>📌 这不仅仅是一个网页，而是属于我们319的“友情纪念册”，愿它承载我们的青春，永不褪色！</p>
             <p>❤️ 319 闪轰，友谊长存！ ❤️</p>
+            <p style="font-size: 20px; font-weight: bold; color: #ff4081;">—— 爱你们的 diedie 💕</p>
         </div>
     </div>
-    <footer>💛 319宿舍 | 友情永不散场 💛</footer>
+    <footer>💛 319宿舍 | 友情的回忆将永远温暖我们的心 💛</footer>
     <script>
         function countdown() {
             const graduationDate = new Date('2025-06-30').getTime();
@@ -116,18 +108,6 @@
                 }, index * 1500);
             });
         }
-        
-        function createCrane() {
-            const crane = document.createElement("img");
-            crane.src = "https://upload.wikimedia.org/wikipedia/commons/6/6b/Origami-crane.svg";
-            crane.classList.add("crane");
-            crane.style.left = Math.random() * 100 + "vw";
-            crane.style.top = "100vh";
-            crane.style.animationDuration = (Math.random() * 10 + 5) + "s";
-            document.body.appendChild(crane);
-            setTimeout(() => { crane.remove(); }, 15000);
-        }
-        setInterval(createCrane, 3000);
     </script>
     <audio autoplay loop>
         <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
